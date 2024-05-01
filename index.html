@@ -1,21 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Three.js app</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <!-- Including the three.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/104/three.min.js"></script>
-    <script src="script.js"></script>
-
-    <!--
-    This script places a badge on your repl's full-browser view back to your repl's cover  
-    page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
-    teal, blue, blurple, magenta, pink!
-    -->
-    <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
-  </body>
+   <head>
+       <title>Simulator</title>
+       <script type="importmap">
+       {
+           "imports": {
+           "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+           "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+           }
+       }
+       </script>
+       <link href="/style.css" rel="stylesheet">
+   </head>
+   <body style="margin:0;padding:0;font-size:17px;">
+       <div style="position:absolute;top:10px;left:10px;color:#00ffff;font-family:Arial;" id="inf">Inf</div>
+       <svg id="crosshair" viewBox="0 0 100 100">
+           <!-- <polygon points="30,30 30,70 70,70 70,30" fill="orange" /> -->
+           <!-- <polygon points="40,40 40,60 60,60 60,40" fill="green" /> -->
+           <polygon points="45,70 45,100 55,100 55,70" fill="white"/>
+           <polygon points="45,0 55,0 55,30 45,30" fill="white"/>
+           <polygon points="0,45 30,45 30,55 0,55" fill="white"/>
+           <polygon points="70,45 100,45 100,55 70,55" fill="white"/>
+       </svg>
+       <div style="color:#0f0;font-family:Arial;display:flex;flex-flow:row nowrap;justify-content:center;top:50vh;transform:translateY(-50%);position:absolute;width:100vw;">
+           <div style="text-align:right;">
+               Velocity
+               <div class="fd" style="border-right:2px solid #0f0;text-align:right;align-items:flex-end;">
+                   <div id="velb" style="display:flex;flex-flow:column nowrap;margin-top:-5px;">
+                       <div class="hb hbl" text="a"></div>
+                       <div class="hb hbl"></div>
+                       <div class="hb hbl"></div>
+                       <div class="hb hbl"></div>
+                   </div>
+               </div>
+           </div>
+           <div style="width:300px;margin-top:20px;height:200px;">
+               <div style="display:flex;flex-flow:row nowrap;height:24px;margin-top:88px;">
+                   <span class="inl"></span>
+                   <span class="inls" style="position:absolute;"></span>
+                   <span id="v" class="d" style="border-left:none;"></span>
+                   <span style="flex:1;"></span>
+                   <span id="a" class="d" style="border-right:none;text-align:right;"></span>
+                   <div style="display:block;width:12px;height:20px;display:flex;flex-flow:row nowrap;">
+                       <span class="inr"></span>
+                       <span class="inrs"></span>
+                   </div>
+               </div>
+           </div>
+           <div>
+               Altitude
+               <div class="fd" style="border-left:2px solid #0f0;">
+                   <div id="altb" style="display:flex;flex-flow:column nowrap;margin-top:-5px;">
+                       <div class="hb hbr" text="b"></div>
+                       <div class="hb hbr"></div>
+                       <div class="hb hbr"></div>
+                       <div class="hb hbr"></div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <script type="module" src="/script.js"></script>
+   </body>
 </html>
+
+
